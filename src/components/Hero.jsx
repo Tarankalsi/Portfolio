@@ -18,8 +18,11 @@ const HeroSection = styled.section`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: #000000;
   font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const BlobBg = styled.div`
@@ -34,6 +37,16 @@ const BlobBg = styled.div`
   filter: blur(60px);
   animation: ${morph} 18s infinite linear;
   z-index: 0;
+  
+  @media (max-width: 768px) {
+    width: 500px;
+    height: 500px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 const GlassPhoto = styled.div`
@@ -51,6 +64,18 @@ const GlassPhoto = styled.div`
   margin-bottom: 2rem;
   z-index: 3;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Photo = styled.img`
@@ -70,6 +95,16 @@ const FloatingIcons = styled.div`
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    width: 280px;
+    height: 280px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 240px;
+    height: 240px;
+  }
 `;
 
 const Icon = styled.div`
@@ -79,6 +114,15 @@ const Icon = styled.div`
   opacity: 0.85;
   filter: drop-shadow(0 2px 8px #0002);
   animation: float 6s ease-in-out infinite;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+  
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-18px); }
@@ -86,12 +130,12 @@ const Icon = styled.div`
 `;
 
 const iconPositions = [
-  { top: "10%", left: "50%" },
-  { top: "50%", left: "90%" },
-  { top: "90%", left: "50%" },
-  { top: "50%", left: "10%" },
-  { top: "20%", left: "80%" },
-  { top: "80%", left: "20%" },
+  { top: "-40%", left: "90%" },
+  { top: "3%", left: "80%" },
+  { top: "-30%", left: "20%" },
+  { top: "20%", left: "10%" },
+  { top: "15%", left: "100%" },
+  { top: "-20%", left: "-20%" },
 ];
 
 const NeonTagline = styled.h2`
@@ -103,6 +147,19 @@ const NeonTagline = styled.h2`
   margin-bottom: 1.2rem;
   animation: neonFlicker 2.5s infinite alternate;
   z-index: 3;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+  }
+  
   @keyframes neonFlicker {
     0%, 100% { opacity: 1; text-shadow: 0 0 8px rgb(239, 187, 63), 0 0 16px rgb(249, 127, 56); }
     45% { opacity: 0.7; text-shadow: 0 0 2px rgb(239, 187, 63), 0 0 4px rgb(249, 127, 56); }
@@ -112,7 +169,7 @@ const NeonTagline = styled.h2`
 
 const GlassCard = styled.div`
   background: rgba(6, 5, 8, 0.32);
-  box-shadow: 0 4px 24px 0rgba(5, 5, 7, 0.13), 0 1.5px 12px 0rgba(11, 11, 18, 0.13);
+  box-shadow: 0 4px 24px 0 rgba(5, 5, 7, 0.13), 0 1.5px 12px 0 rgba(11, 11, 18, 0.13);
   backdrop-filter: blur(18px);
   border-radius: 28px;
   border: 1.5px solid rgba(255,255,255,0.13);
@@ -124,6 +181,20 @@ const GlassCard = styled.div`
   margin: 0 auto;
   position: relative;
   animation: glassPop 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 24px;
+    max-width: 420px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-radius: 20px;
+    max-width: 360px;
+    width: 95%;
+  }
+  
   @keyframes glassPop {
     0% { opacity: 0; transform: scale(0.96) translateY(32px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
@@ -136,6 +207,18 @@ const AccentBar = styled.div`
   border-radius: 2px;
   background: linear-gradient(90deg, #22223b 0%, #43e97b 100%);
   margin: 0 auto 1.2rem auto;
+  
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 3px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 2px;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 const BubbleCanvas = styled.canvas`

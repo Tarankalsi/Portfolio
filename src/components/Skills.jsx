@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaSass, FaDatabase, FaGitAlt } from "react-icons/fa";
+import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaSass, FaDatabase, FaGitAlt, FaAws, FaDocker } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiExpress, SiPrisma, SiMongodb, SiPostgresql, SiPostman } from "react-icons/si";
 import smokeVideo from "../assets/vecteezy_realistic-dry-ice-smoke-clouds-fog-overlay-perfect-for_21523291.mp4";
 
 const fadeIn = keyframes`
@@ -19,30 +20,13 @@ const SkillsSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
-const SmokeVideo = styled.video`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.30;
-  pointer-events: none;
-  object-fit: cover;
-`;
 
-const SmokeFade = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent 0%,rgba(0, 0, 0, 0.84) 100%);
-`;
 
 const Title = styled.h2`
   color: #fff;
@@ -52,6 +36,16 @@ const Title = styled.h2`
   text-align: center;
   position: relative;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const ConstellationContainer = styled.div`
@@ -62,15 +56,23 @@ const ConstellationContainer = styled.div`
   max-height: 80vh;
   margin: 0 auto;
   z-index: 2;
+  
   @media (max-width: 900px) {
     width: 98vw;
     height: 60vw;
     max-height: 60vw;
   }
+  
   @media (max-width: 700px) {
     width: 340px;
     height: 320px;
     max-height: 50vw;
+  }
+  
+  @media (max-width: 480px) {
+    width: 300px;
+    height: 500px;
+    max-height: 70vh;
   }
 `;
 
@@ -96,11 +98,45 @@ const SkillNode = styled.div`
   animation-fill-mode: both;
   cursor: pointer;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+    border-radius: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    gap: 0.4rem;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0;
+  }
+  
   &:hover {
     background: rgba(60, 60, 60, 0.14);
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     box-shadow: 0 4px 32px 0 rgba(255, 255, 255, 0.35);
     transform: scale(1.08);
+    
+    @media (max-width: 768px) {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 480px) {
+      transform: scale(1.03);
+      background: transparent;
+      box-shadow: none;
+    }
   }
 `;
 
@@ -115,6 +151,16 @@ const Glow = styled.div`
   transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none;
+  
+  @media (max-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const StarsBg = styled.div`
@@ -153,33 +199,62 @@ const Star = styled.div`
 
 const skills = [
   { name: "JavaScript", icon: <FaJs color="#f7df1e" /> },
-  { name: "TypeScript", icon: <FaJs color="#3178c6" /> },
+  { name: "TypeScript", icon: <SiTypescript color="#3178c6" /> },
   { name: "React.js", icon: <FaReact color="#61dafb" /> },
   { name: "Node.js", icon: <FaNodeJs color="#43e97b" /> },
-  { name: "HTML5", icon: <FaHtml5 color="#e44d26" /> },
-  { name: "CSS3", icon: <FaCss3Alt color="#2965f1" /> },
-  { name: "SASS", icon: <FaSass color="#cc6699" /> },
-  { name: "MongoDB", icon: <FaDatabase color="#43e97b" /> },
+  { name: "Express.js", icon: <SiExpress color="#000000" /> },
+  { name: "Next.js", icon: <SiNextdotjs color="#ffffff" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss color="#06b6d4" /> },
+  { name: "REST API", icon: <FaDatabase color="#22223b" /> },
+  { name: "Prisma (ORM)", icon: <SiPrisma color="#2d3748" /> },
+  { name: "Mongoose", icon: <SiMongodb color="#00ed64" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+  { name: "MongoDB", icon: <SiMongodb color="#00ed64" /> },
   { name: "Git", icon: <FaGitAlt color="#f34f29" /> },
-  { name: "REST APIs", icon: <FaDatabase color="#22223b" /> },
-  { name: "GraphQL", icon: <FaDatabase color="#0a001a" /> },
-  { name: "CI/CD", icon: <FaDatabase color="#0a001a" /> },
+  { name: "Postman", icon: <SiPostman color="#ff6c37" /> },
+  { name: "AWS", icon: <FaAws color="#ff9900" /> },
+  { name: "Docker", icon: <FaDocker color="#2496ed" /> },
 ];
 
-// Predefined constellation node positions (x, y in % of container)
+// Fixed constellation node positions for 16 skills - well distributed
 const nodePositions = [
-  { x: 10, y: 15 }, { x: 30, y: 7 }, { x: 65, y: 12 }, { x: 88, y: 25 },
-  { x: 92, y: 50 }, { x: 75, y: 75 }, { x: 50, y: 85 }, { x: 25, y: 75 },
-  { x: 7, y: 50 }, { x: 18, y: 32 }, { x: 70, y: 55 }, { x: 45, y: 22 },
+  { x: 15, y: 20 }, { x: 35, y: 15 }, { x: 55, y: 18 }, { x: 75, y: 12 },
+  { x: 85, y: 30 }, { x: 75, y: 60 }, { x: 90, y: 70 }, { x: 65, y: 80 },
+  { x: 45, y: 85 }, { x: 25, y: 75 }, { x: 12, y: 65 }, { x: 8, y: 45 },
+  { x: 20, y: 35 }, { x: 40, y: 45 }, { x: 60, y: 55 }, { x: 80, y: 45 },
 ];
 
-// Pairs of node indices to connect with lines
+// Mobile-specific node positions for better vertical distribution
+const mobileNodePositions = [
+  { x: 10, y: 8 }, { x: 30, y: 6 }, { x: 50, y: 10 }, { x: 70, y: 5 },
+  { x: 80, y: 15 }, { x: 70, y: 25 }, { x: 85, y: 35 }, { x: 60, y: 45 },
+  { x: 40, y: 55 }, { x: 20, y: 65 }, { x: 8, y: 75 }, { x: 2, y: 85 },
+  { x: 15, y: 95 }, { x: 35, y: 85 }, { x: 55, y: 75 }, { x: 75, y: 65 },
+];
+
+// Fixed connections for 16 nodes - creates a nice constellation pattern
 const connections = [
-  [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,0], // outer loop
-  [1,10],[10,11],[11,4],[11,7],[10,6],[2,10],[9,11],[5,10]
+  [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,0], // outer loop
+  [1,13],[13,14],[14,15],[15,5],[13,9],[14,7],[2,14],[3,15],[6,14],[8,13],[10,12],[11,13] // inner connections
 ];
 
 export default function Skills() {
+  // Custom hook to detect screen size
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Use appropriate positions based on screen size
+  const currentPositions = isMobile ? mobileNodePositions : nodePositions;
+
   // Generate 120 random stars, with more tiny and visible ones
   const stars = React.useMemo(() => Array.from({ length: 120 }, (_, i) => {
     const size = 0.7 + Math.random() * 2.5;
@@ -206,14 +281,7 @@ export default function Skills() {
           <Star {...star} />
         ))}
       </StarsBg>
-      <SmokeVideo
-        src={smokeVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      <SmokeFade />
+
       <Title>Skills</Title>
       <ConstellationContainer>
         <svg
@@ -222,8 +290,8 @@ export default function Skills() {
           style={{ position: "absolute", left: 0, top: 0, zIndex: 1, pointerEvents: "none" }}
         >
           {connections.map(([from, to], i) => {
-            const a = nodePositions[from];
-            const b = nodePositions[to];
+            const a = currentPositions[from];
+            const b = currentPositions[to];
             return (
               <line
                 key={i}
@@ -237,7 +305,7 @@ export default function Skills() {
           })}
         </svg>
         {skills.map((skill, i) => {
-          const { x, y } = nodePositions[i];
+          const { x, y } = currentPositions[i];
           return (
             <React.Fragment key={skill.name}>
               <Glow style={{ left: `${x}%`, top: `${y}%` }} />

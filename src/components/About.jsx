@@ -21,6 +21,14 @@ const AboutSection = styled.section`
   align-items: center;
   background: none;
   padding: 4rem 0 2rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 3rem 0 1.5rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 0 1rem 0;
+  }
 `;
 
 const GlassCard = styled.div`
@@ -34,6 +42,18 @@ const GlassCard = styled.div`
   margin: 0 auto;
   text-align: center;
   animation: ${fadeInUp} 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    max-width: 90vw;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    max-width: 95vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -41,12 +61,32 @@ const Title = styled.h2`
   font-size: 2.2rem;
   margin-bottom: 1.2rem;
   letter-spacing: 1px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 const Description = styled.p`
   color: #e0e0e0;
   font-size: 1.18rem;
   line-height: 1.7;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 `;
 
 export default function About() {
