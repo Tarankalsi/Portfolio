@@ -13,7 +13,7 @@ const morph = keyframes`
 const HeroSection = styled.section`
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -225,10 +225,14 @@ const AccentBar = styled.div`
 const BubbleCanvas = styled.canvas`
   position: absolute;
   top: 0; left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 1;
   pointer-events: auto;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 function distance(x1, y1, x2, y2) {
