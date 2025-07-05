@@ -12,7 +12,7 @@ const UniverseBg = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 0;
   pointer-events: none;
@@ -58,7 +58,7 @@ const Star = styled.div`
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: none;
   padding: 4rem 0 2rem 0;
   display: flex;

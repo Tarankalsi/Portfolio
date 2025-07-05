@@ -14,7 +14,7 @@ const fadeInUp = keyframes`
 
 const AboutSection = styled.section`
   min-height: 80vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

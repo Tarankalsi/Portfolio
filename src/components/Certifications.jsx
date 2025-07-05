@@ -14,7 +14,7 @@ const glow = keyframes`
 
 const Section = styled.section`
   min-height: 60vh;
-  width: 100vw;
+  width: 100%;
   background: none;
   padding: 4rem 0 2rem 0;
   display: flex;

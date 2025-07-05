@@ -148,17 +148,27 @@ const NeonTagline = styled.h2`
   margin-bottom: 1.2rem;
   animation: neonFlicker 2.5s infinite alternate;
   z-index: 3;
+  text-align: center;
+  padding: 0 1rem;
   
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    padding: 0 0.8rem;
   }
   
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: 0.5px;
     margin-bottom: 0.8rem;
+    padding: 0 0.5rem;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    padding: 0 0.3rem;
   }
   
   @keyframes neonFlicker {

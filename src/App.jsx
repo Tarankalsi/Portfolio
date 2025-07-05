@@ -15,6 +15,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
   body {
     margin: 0;
     padding: 0;
@@ -23,18 +29,24 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     overflow-x: hidden;
     font-size: 16px;
+    width: 100%;
+    max-width: 100%;
     
     @media (max-width: 768px) {
       font-size: 14px;
+      overflow-x: hidden;
     }
     
     @media (max-width: 480px) {
       font-size: 12px;
+      overflow-x: hidden;
     }
   }
   
-  html {
-    scroll-behavior: smooth;
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   
   /* Responsive video background */
@@ -58,6 +70,12 @@ const GlobalStyle = createGlobalStyle`
       min-width: 44px;
     }
   }
+  
+  /* Prevent horizontal overflow on all elements */
+  section, div, nav, ul, li {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 `;
 
 export default function App() {
@@ -75,7 +93,7 @@ export default function App() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100vw",
+          width: "100%",
           height: "100vh",
           objectFit: "cover",
           zIndex: -2,
@@ -88,7 +106,7 @@ export default function App() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100vw",
+          width: "100%",
           height: "100vh",
           background: "rgba(0, 0, 0, 0.7)",
           zIndex: -1,

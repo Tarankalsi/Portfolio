@@ -12,7 +12,7 @@ const fadeIn = keyframes`
 const SkillsSection = styled.section`
   min-height: 100vh;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: none;
   position: relative;
   overflow: hidden;
@@ -167,7 +167,7 @@ const StarsBg = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 1;
   pointer-events: none;

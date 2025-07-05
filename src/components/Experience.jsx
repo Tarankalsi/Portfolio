@@ -9,7 +9,7 @@ const fadeInUp = keyframes`
 
 const Section = styled.section`
   min-height: 80vh;
-  width: 100vw;
+  width: 100%;
   background: none;
   padding: 4rem 0 2rem 0;
   display: flex;
