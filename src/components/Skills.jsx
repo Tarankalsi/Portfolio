@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaSass, FaDatabase, FaGitAlt, FaAws, FaDocker } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss, SiExpress, SiPrisma, SiMongodb, SiPostgresql, SiPostman } from "react-icons/si";
-import smokeVideo from "../assets/vecteezy_realistic-dry-ice-smoke-clouds-fog-overlay-perfect-for_21523291.mp4";
+
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: scale(0.7); }
