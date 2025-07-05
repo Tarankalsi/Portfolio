@@ -87,6 +87,19 @@ const Title = styled.h2`
   margin-bottom: 2.2rem;
   letter-spacing: 1px;
   text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #22223b 0%, #ffffff 100%);
+    border-radius: 2px;
+  }
   
   @media (max-width: 768px) {
     font-size: 1.8rem;

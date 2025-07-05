@@ -47,7 +47,7 @@ const Title = styled.h2`
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #22223b 0%, #ffffff 100%);
+    background: linear-gradient(90deg,rgb(28, 28, 28) 0%, #ffffff 100%);
     border-radius: 2px;
   }
   
@@ -63,8 +63,8 @@ const Title = styled.h2`
 `;
 
 const Card = styled.div`
-  background: rgba(34, 18, 51, 0.32);
-  box-shadow: 0 4px 24px 0 #22223b33, 0 1.5px 12px 0 #ffffff22;
+  background: rgba(22, 22, 22, 0.45);
+  box-shadow: 0 4px 24px 0 rgba(178, 178, 178, 0.2), 0 1.5px 12px 0 rgba(255, 255, 255, 0.13);
   backdrop-filter: blur(18px);
   border-radius: 22px;
   border: 1.5px solid rgba(255,255,255,0.13);
@@ -107,8 +107,8 @@ const Card = styled.div`
   
   &:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 32px 0 #22223b44;
-    border: 2px solid #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(191, 191, 191, 0.27);
+  
     
     &::before {
       opacity: 1;
@@ -197,10 +197,10 @@ const InfoText = styled.div`
 `;
 
 const ContactLink = styled.a`
-  color: #22223b;
+  color:rgb(198, 198, 198);
   font-size: 1.5rem;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #ffffff;
+  
   border-radius: 50%;
   padding: 0.55rem;
   transition: all 0.3s;

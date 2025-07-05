@@ -47,7 +47,7 @@ const Title = styled.h2`
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #22223b 0%, #ffffff 100%);
+    background: linear-gradient(90deg,rgb(44, 44, 44) 0%, #ffffff 100%);
     border-radius: 2px;
   }
   
@@ -84,11 +84,10 @@ const CertGrid = styled.div`
 `;
 
 const CertCard = styled.div`
-  background: rgba(34, 18, 51, 0.32);
-  box-shadow: 0 4px 24px 0 #22223b33, 0 1.5px 12px 0 #ffffff22;
+  background: rgba(30, 30, 30, 0.32);
+  box-shadow: 0 4px 24px 0 rgba(183, 183, 183, 0.2), 0 1.5px 12px 0 rgba(210, 210, 210, 0.13);
   backdrop-filter: blur(18px);
   border-radius: 22px;
-  border: 1.5px solid rgba(255,255,255,0.13);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -97,7 +96,7 @@ const CertCard = styled.div`
   animation-fill-mode: both;
   animation-delay: ${({ delay }) => delay * 0.2}s;
   position: relative;
-  transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+  transition: transform 0.18s, box-shadow 0.18s;
   overflow: hidden;
   
   &::before {
@@ -107,7 +106,7 @@ const CertCard = styled.div`
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #ffffff 0%, #22223b 100%);
+    background: linear-gradient(90deg, #ffffff 0%,rgb(29, 29, 29) 100%);
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -124,8 +123,8 @@ const CertCard = styled.div`
   
   &:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 32px 0 #22223b44;
-    border: 2px solid #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.28);
+  
     
     &::before {
       opacity: 1;
@@ -158,7 +157,7 @@ const Badge = styled.img`
   width: 54px;
   height: 54px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px #22223b88);
+  filter: drop-shadow(0 0 8px rgba(46, 46, 46, 0.53));
   transition: transform 0.3s;
   
   @media (max-width: 768px) {
