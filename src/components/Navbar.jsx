@@ -70,7 +70,7 @@ const ProgressBar = styled.div`
     height: 3px;
     left: 5%;
     top: auto;
-    bottom: -8px;
+    bottom: -12px;
     background: linear-gradient(90deg,rgb(98, 98, 98) 0%,rgb(26, 26, 26) 100%);
   }
 `;
@@ -80,20 +80,20 @@ const ProgressIndicator = styled.div`
   background: rgb(243, 243, 243);
   border-radius: 2px;
   position: absolute;
-  left: -10px;
+  left: 0;
+  top: 0;
   transition: height 0.3s;
   
   @media (max-width: 768px) {
-    left: -8px;
     width: 3px;
   }
   
   @media (max-width: 480px) {
-    width: 90%;
-    height: 3px;
-    left: 5%;
-    top: auto;
-    bottom: -8px;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: auto;
     background: rgb(243, 243, 243);
     transition: width 0.3s;
   }
@@ -266,12 +266,13 @@ export default function Navbar() {
 
   return (
     <FloatingBar>
-      <ProgressBar />
+      <ProgressBar>
         <ProgressIndicator 
           style={{ 
             [isMobile ? 'width' : 'height']: `${progress * 90}%` 
           }} 
         />
+      </ProgressBar>
       <NavLinks>
         {navSections.map(section => (
           <NavItem key={section.id}>

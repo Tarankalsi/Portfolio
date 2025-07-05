@@ -191,6 +191,11 @@ const Star = styled.div`
   animation: shineStar 2.5s infinite alternate;
   animation-delay: ${({ delay }) => delay}s;
 
+  @media (max-width: 768px) {
+    animation: none;
+    filter: blur(0.3px) drop-shadow(0 0 3px #fff6);
+  }
+
   @keyframes shineStar {
     0%, 100% { opacity: ${({ opacity }) => opacity}; filter: blur(0.5px) drop-shadow(0 0 6px #fff8); }
     50% { opacity: ${({ opacity }) => opacity * 1.2}; filter: blur(1.5px) drop-shadow(0 0 12px #fff); }
@@ -255,24 +260,27 @@ export default function Skills() {
   // Use appropriate positions based on screen size
   const currentPositions = isMobile ? mobileNodePositions : nodePositions;
 
-  // Generate 120 random stars, with more tiny and visible ones
-  const stars = React.useMemo(() => Array.from({ length: 120 }, (_, i) => {
-    const size = 0.7 + Math.random() * 2.5;
-    const opacity = 0.32 + Math.random() * 0.45;
-    // Most stars white, some blue or deep space
-    let color = 'white';
-    if (Math.random() < 0.12) color = 'blue';
-    else if (Math.random() < 0.22) color = '#0a001a';
-    return {
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size,
-      opacity,
-      delay: Math.random() * 2.5,
-      color,
-      key: i,
-    };
-  }), []);
+  // Generate stars based on screen size for better performance
+  const stars = React.useMemo(() => {
+    const starCount = isMobile ? 40 : 120;
+    return Array.from({ length: starCount }, (_, i) => {
+      const size = 0.7 + Math.random() * 2.5;
+      const opacity = 0.32 + Math.random() * 0.45;
+      // Most stars white, some blue or deep space
+      let color = 'white';
+      if (Math.random() < 0.12) color = 'blue';
+      else if (Math.random() < 0.22) color = '#0a001a';
+      return {
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size,
+        opacity,
+        delay: Math.random() * 2.5,
+        color,
+        key: i,
+      };
+    });
+  }, [isMobile]);
 
   return (
     <SkillsSection id="skills">

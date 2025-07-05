@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import styled, { keyframes } from "styled-components";
 import { FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt, FaGithub } from "react-icons/fa";
@@ -42,11 +42,14 @@ const BlobBg = styled.div`
   @media (max-width: 768px) {
     width: 500px;
     height: 500px;
+    animation: none;
+    filter: blur(30px);
   }
   
   @media (max-width: 480px) {
     width: 400px;
     height: 400px;
+    filter: blur(20px);
   }
 `;
 
@@ -70,6 +73,8 @@ const GlassPhoto = styled.div`
     width: 150px;
     height: 150px;
     margin-bottom: 1.5rem;
+    backdrop-filter: none;
+    box-shadow: 0 4px 16px 0 rgba(187, 187, 187, 0.2);
   }
   
   @media (max-width: 480px) {
@@ -118,6 +123,7 @@ const Icon = styled.div`
   
   @media (max-width: 768px) {
     font-size: 1.8rem;
+    animation: none;
   }
   
   @media (max-width: 480px) {
@@ -156,6 +162,8 @@ const NeonTagline = styled.h2`
     letter-spacing: 1px;
     margin-bottom: 1rem;
     padding: 0 0.8rem;
+    animation: none;
+    text-shadow: 0 0 4px rgb(234, 188, 61), 0 0 8px rgb(249, 133, 56);
   }
   
   @media (max-width: 480px) {
@@ -197,6 +205,9 @@ const GlassCard = styled.div`
     padding: 2rem 1.5rem 1.5rem 1.5rem;
     border-radius: 24px;
     max-width: 420px;
+    backdrop-filter: none;
+    box-shadow: 0 2px 12px 0 rgba(5, 5, 7, 0.2);
+    animation: none;
   }
   
   @media (max-width: 480px) {
@@ -253,14 +264,35 @@ export default function Hero() {
   const canvasRef = useRef(null);
   const bubblesRef = useRef([]);
   const mouseRef = useRef({ x: -1000, y: -1000 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      return mobile;
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Only run canvas animation on desktop
+    if (checkMobile()) {
+      return () => {
+        window.removeEventListener('resize', checkMobile);
+      };
+    }
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
+    
     const ctx = canvas.getContext("2d");
     let width = window.innerWidth;
     let height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
+    
     // Create bubbles
     const bubbles = Array.from({ length: 18 }, (_, i) => ({
       id: i,
@@ -318,8 +350,6 @@ export default function Hero() {
         ctx.arc(bubble.x, bubble.y, bubble.radius, 0, 2 * Math.PI);
         ctx.fillStyle = bubble.color;
         ctx.shadowColor = '#969696';   
-        
-        
         ctx.shadowBlur = 40;
         ctx.fill();
         ctx.restore();
@@ -327,6 +357,7 @@ export default function Hero() {
       requestAnimationFrame(loop);
     }
     loop();
+    
     // Resize
     const onResize = () => {
       width = window.innerWidth;
@@ -335,18 +366,20 @@ export default function Hero() {
       canvas.height = height;
     };
     window.addEventListener("resize", onResize);
+    
     return () => {
       running = false;
       canvas.removeEventListener("mousemove", onMouseMove);
       canvas.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
   return (
     <HeroSection id="hero">
       <BlobBg />
-      <BubbleCanvas ref={canvasRef} />
+      {!isMobile && <BubbleCanvas ref={canvasRef} />}
       <FloatingIcons>
         <Icon style={iconPositions[0]}><FaReact color="#61dafb" /></Icon>
         <Icon style={iconPositions[1]}><FaNodeJs color="#43e97b" /></Icon>

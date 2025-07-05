@@ -49,6 +49,24 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
   
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  }
+  
   /* Responsive video background */
   @media (max-width: 768px) {
     video {
@@ -75,6 +93,13 @@ const GlobalStyle = createGlobalStyle`
   section, div, nav, ul, li {
     max-width: 100%;
     box-sizing: border-box;
+  }
+  
+  /* Optimize backdrop filters for mobile */
+  @media (max-width: 768px) {
+    * {
+      backdrop-filter: none !important;
+    }
   }
 `;
 

@@ -50,6 +50,11 @@ const Star = styled.div`
   animation: shineStar 2.5s infinite alternate;
   animation-delay: ${({ delay }) => delay}s;
 
+  @media (max-width: 768px) {
+    animation: none;
+    filter: blur(0.3px) drop-shadow(0 0 3px #fff6);
+  }
+
   @keyframes shineStar {
     0%, 100% { opacity: ${({ opacity }) => opacity}; filter: blur(0.5px) drop-shadow(0 0 6px #fff8); }
     50% { opacity: ${({ opacity }) => opacity * 1.2}; filter: blur(1.5px) drop-shadow(0 0 12px #fff); }
@@ -138,6 +143,9 @@ const ProjectCard = styled.div`
     width: 28rem;
     padding: 1.2rem 1rem 1rem 1rem;
     border-radius: 18px;
+    backdrop-filter: none;
+    box-shadow: 0 2px 12px 0 rgba(134, 134, 134, 0.2);
+    animation: none;
   }
   
   @media (max-width: 480px) {
