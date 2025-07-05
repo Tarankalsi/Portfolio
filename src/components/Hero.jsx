@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import styled, { keyframes } from "styled-components";
 import { FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt, FaGithub } from "react-icons/fa";
+import IMG_0811 from "../assets/IMG_0811.jpg";
 
 const morph = keyframes`
   0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
@@ -341,7 +342,7 @@ export default function Hero() {
         <Icon style={iconPositions[5]}><FaGithub color="#fff" /></Icon>
       </FloatingIcons>
       <GlassPhoto>
-        <Photo src="src/assets/IMG_0811.jpg" alt="Your Photo" />
+        <Photo src={IMG_0811} alt="Taranjit Singh" />
       </GlassPhoto>
       <NeonTagline>
         <Typewriter
